@@ -12,7 +12,7 @@ namespace StringSharp.Tests
     {
         public void SFTest(string sharpFormat, string expected, params object[] args)
         {
-            string formatted = sharpFormat.SFormat(args);
+            string formatted = sharpFormat.SharpFormat(args);
             Assert.AreEqual(expected, formatted);
         }
 
@@ -33,7 +33,7 @@ namespace StringSharp.Tests
         public void NullThrowsException()
         {
             string original = null;
-            original.SFormat();
+            original.SharpFormat();
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace StringSharp.Tests
         [ExpectedException(typeof(FormatException))]
         public void FormatSingleWithotArgsShouldThrowException()
         {
-            "Testing # Testing".SFormat();
+            "Testing # Testing".SharpFormat();
         }
 
         [TestMethod]
@@ -83,10 +83,9 @@ namespace StringSharp.Tests
         public void RepeatPreviousArgument()
         {
             SFTest(
-                "# is my name, nice to meet you #, said #0", 
-                "Joe is my name, nice to meet you Earl, said Joe", 
+                "# is my name, nice to meet you #, said #0",
+                "Joe is my name, nice to meet you Earl, said Joe",
                 "Joe", "Earl");
         }
-
     }
 }
