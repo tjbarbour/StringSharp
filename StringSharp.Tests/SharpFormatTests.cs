@@ -43,6 +43,12 @@ namespace StringSharp.Tests
         }
 
         [TestMethod]
+        public void EscapeOverload()
+        {
+            SFTest("######", "###");
+        }
+
+        [TestMethod]
         public void FormatSingle()
         {
             SFTest("There are # weeks in the year", "There are 52 weeks in the year", 52);
@@ -71,6 +77,15 @@ namespace StringSharp.Tests
         public void FormatMultiple()
         {
             SFTest("One #, Two #, Three #.", "One 1, Two 2, Three 3.", 1,2,3);
+        }
+
+        [TestMethod]
+        public void RepeatPreviousArgument()
+        {
+            SFTest(
+                "# is my name, nice to meet you #, said #0", 
+                "Joe is my name, nice to meet you Earl, said Joe", 
+                "Joe", "Earl");
         }
 
     }
