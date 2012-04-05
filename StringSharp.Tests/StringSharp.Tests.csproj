@@ -46,6 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharpFormatTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StringSharp\StringSharp.csproj">
+      <Project>{0544EE5A-46B9-4BDB-A8AF-0D7F80B92241}</Project>
+      <Name>StringSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
