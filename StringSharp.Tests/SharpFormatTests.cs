@@ -96,5 +96,11 @@ namespace StringSharp.Tests
                 "101 first 202 second 101 first again 303 third 202 second again 101 first again 404 fourth 303 third again 202 second again",
                 101, 202, 303, 404);
         }
+
+        [TestMethod]
+        public void CombineEscapeAndArguments()
+        {
+            SFTest("C## is ###!", "C# is #1!", 1);
+        }
     }
 }
