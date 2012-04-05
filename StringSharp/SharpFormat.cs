@@ -9,6 +9,7 @@ namespace StringSharp
     {
         public static string SFormat(this string str, params object[] args)
         {
+            str = str.Replace("##", "#");
             return String.Format(str, args);
         }
     }
