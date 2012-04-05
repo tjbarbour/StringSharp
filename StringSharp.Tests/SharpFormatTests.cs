@@ -10,20 +10,22 @@ namespace StringSharp.Tests
     [TestClass]
     public class SharpFormatTests
     {
+        public void SFTest(string sharpFormat, string expected, params object[] args)
+        {
+            string formatted = sharpFormat.SFormat(args);
+            Assert.AreEqual(expected, formatted);
+        }
+
         [TestMethod]
         public void ShouldLeaveConstantStringAlone()
         {
-            string original = "Hello StringSharp!";
-            string formatted = original.SFormat();
-            Assert.AreEqual(original, formatted);
+            SFTest("Hello StringSharp!","Hello StringSharp!");
         }
 
         [TestMethod]
         public void EmptyStaysEmpty()
         {
-            string original = "";
-            string formatted = original.SFormat();
-            Assert.AreEqual(original, formatted);
+            SFTest("", "");
         }
 
         [TestMethod]
@@ -37,19 +39,25 @@ namespace StringSharp.Tests
         [TestMethod]
         public void EscapeSharp()
         {
-            string original = "We're ##1!";
-            string formatted = original.SFormat();
-            string expected = "We're #1!";
-            Assert.AreEqual(expected, formatted);
+            SFTest("We're ##1!", "We're #1!");
         }
 
         [TestMethod]
         public void FormatASingleArgument()
         {
-            string original = "There are # weeks in the year";
-            string formatted = original.SFormat(52);
-            string expected = "There are 52 weeks in the year";
-            Assert.AreEqual(expected, formatted);
+            SFTest("There are # weeks in the year", "There are 52 weeks in the year", 52);
+        }
+
+        [TestMethod]
+        public void FormatASingleArgumentAtHead()
+        {
+            SFTest("# world!", "Hello world!", "Hello"); 
+        }
+
+        [TestMethod]
+        public void FormatASingleArgumentAtFoot()
+        {
+            SFTest("Hello #", "Hello world!", "world!");
         }
     }
 }

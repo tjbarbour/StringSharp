@@ -15,18 +15,20 @@ namespace StringSharp
             StringBuilder format = new StringBuilder();
             for (int i = 0; i < sharpFormat.Length; i++)
             {
-                if (sharpFormat[i] == '#' && sharpFormat[i+1] == '#')
+                char current = sharpFormat[i];
+                char next = i + 1 < sharpFormat.Length ? sharpFormat[i + 1] : ' ';
+                if (current == '#' && next == '#')
                 {
                     format.Append('#');
                     ++i;
                 }
-                else if (sharpFormat[i] == '#')
+                else if (current == '#')
                 {
                     format.Append("{0}");
                 }
                 else
                 {
-                    format.Append(sharpFormat[i]);
+                    format.Append(current);
                 }
             }
 
