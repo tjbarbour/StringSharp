@@ -43,19 +43,19 @@ namespace StringSharp.Tests
         }
 
         [TestMethod]
-        public void FormatASingleArgument()
+        public void FormatSingle()
         {
             SFTest("There are # weeks in the year", "There are 52 weeks in the year", 52);
         }
 
         [TestMethod]
-        public void FormatASingleArgumentAtHead()
+        public void FormatSingleAtHead()
         {
             SFTest("# world!", "Hello world!", "Hello"); 
         }
 
         [TestMethod]
-        public void FormatASingleArgumentAtFoot()
+        public void FormatSingleAtFoot()
         {
             SFTest("Hello #", "Hello world!", "world!");
         }
@@ -65,6 +65,12 @@ namespace StringSharp.Tests
         public void FormatSingleWithotArgsShouldThrowException()
         {
             "Testing # Testing".SFormat();
+        }
+
+        [TestMethod]
+        public void FormatMultiple()
+        {
+            SFTest("One #, Two #, Three #.", "One 1, Two 2, Three 3.", 1,2,3);
         }
 
     }

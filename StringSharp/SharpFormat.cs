@@ -10,6 +10,7 @@ namespace StringSharp
         public static string SFormat(this string sharpFormat, params object[] args)
         {
             StringBuilder format = new StringBuilder();
+            int argCount = 0;
             for (int i = 0; i < sharpFormat.Length; i++)
             {
                 char current = sharpFormat[i];
@@ -21,7 +22,7 @@ namespace StringSharp
                 }
                 else if (current == '#')
                 {
-                    format.Append("{0}");
+                    format.Append(String.Format("{{{0}}}",argCount++));
                 }
                 else
                 {
