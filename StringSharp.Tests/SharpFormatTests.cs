@@ -87,5 +87,14 @@ namespace StringSharp.Tests
                 "Joe is my name, nice to meet you Earl, said Joe",
                 "Joe", "Earl");
         }
+
+        [TestMethod]
+        public void RepeatMultplePreviousMultipleTimes()
+        {
+            SFTest(
+                "# first # second #0 first again # third #1 second again #0 first again # fourth #2 third again #1 second again",
+                "101 first 202 second 101 first again 303 third 202 second again 101 first again 404 fourth 303 third again 202 second again",
+                101, 202, 303, 404);
+        }
     }
 }
