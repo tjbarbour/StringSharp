@@ -42,5 +42,14 @@ namespace StringSharp.Tests
             string expected = "We're #1!";
             Assert.AreEqual(expected, formatted);
         }
+
+        [TestMethod]
+        public void FormatASingleArgument()
+        {
+            string original = "There are # weeks in the year";
+            string formatted = original.SFormat(52);
+            string expected = "There are 52 weeks in the year";
+            Assert.AreEqual(expected, formatted);
+        }
     }
 }
