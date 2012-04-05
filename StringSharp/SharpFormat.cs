@@ -16,23 +16,26 @@ namespace StringSharp
             {
                 char current = sharpFormat[i];
                 char next = i + 1 < sharpFormat.Length ? sharpFormat[i + 1] : ' ';
-                if (current == SHARP && next == SHARP)
+                if (current != SHARP)
+                {
+                    int nextSharp = sharpFormat.IndexOf(SHARP, i);
+                    int until = nextSharp > 0 ? nextSharp : sharpFormat.Length;
+                    format.Append(sharpFormat.Substring(i, until - i ));
+                    i = until - 1;
+                }
+                else if (next == SHARP)
                 {
                     format.Append(SHARP);
                     ++i;
                 }
-                else if (current == SHARP && char.IsNumber(next))
+                else if (char.IsNumber(next))
                 {
                     format.Append(String.Format("{{{0}}}", next));
                     ++i;
                 }
-                else if (current == SHARP)
-                {
-                    format.Append(String.Format("{{{0}}}", argCount++));
-                }
                 else
                 {
-                    format.Append(current);
+                    format.Append(String.Format("{{{0}}}", argCount++));
                 }
             }
 
