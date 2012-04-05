@@ -29,8 +29,8 @@ namespace StringSharp.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void NullThrowsArgumentException()
+        [ExpectedException(typeof(NullReferenceException))]
+        public void NullThrowsException()
         {
             string original = null;
             original.SFormat();
@@ -59,5 +59,13 @@ namespace StringSharp.Tests
         {
             SFTest("Hello #", "Hello world!", "world!");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void FormatSingleWithotArgsShouldThrowException()
+        {
+            "Testing # Testing".SFormat();
+        }
+
     }
 }

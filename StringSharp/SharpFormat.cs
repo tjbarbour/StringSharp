@@ -9,9 +9,6 @@ namespace StringSharp
     {
         public static string SFormat(this string sharpFormat, params object[] args)
         {
-            // for trolls
-            if (sharpFormat == null) return String.Format(sharpFormat, args); // punt
-
             StringBuilder format = new StringBuilder();
             for (int i = 0; i < sharpFormat.Length; i++)
             {
