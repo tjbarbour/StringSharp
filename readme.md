@@ -4,11 +4,10 @@
 This is just a little extension that I wrote for 'convention based' string formatting.
 
 It replaces:  
-```String.Format("{0} then {1} then {2}",11,22,33);
-```  
+```String.Format("{0} then {1} then {2}",11,22,33);```  
 with  
-```"# then # then #".SharpFormat(11,22,33);
-```  
+```"# then # then #".SharpFormat(11,22,33);```
+
 In short, it uses ```#``` instead of ```{x}``` and (mostly) assumes increasing argument count.  Also its exposed as an extension method for ease of use.
 
 You can **escape** to hash using ```##```  
@@ -23,7 +22,8 @@ becomes
 This _only supports referencing arguments 0-9_ for simplicity.  
 
 There are **shortcuts** for succinct method names  
-```"Hello #!".SharpFormat("Formal");  
+```
+"Hello #!".SharpFormat("Formal");  
 "Hello #!".SFmt("Casual");  
 "Hello #!".SF("Lazy");  
 ```  
