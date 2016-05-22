@@ -5,6 +5,7 @@ using System.Text;
 
 namespace StringSharp
 {
+    /// This is the main extensions class for lazy string formatting
     public static class SharpFormatExtensions
     {
         /// <summary>
